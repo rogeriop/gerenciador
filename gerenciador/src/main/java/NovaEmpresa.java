@@ -24,6 +24,7 @@ public class NovaEmpresa extends HttpServlet {
      */
     public NovaEmpresa() {
         super();
+        
         // TODO Auto-generated constructor stub
     }
 

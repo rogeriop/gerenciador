@@ -46,7 +46,7 @@ public class FiltroDeAuditoria implements Filter {
 //			resp.addCookie(cookie);
 //			System.out.println("Usuário " + cookie.getValue()  + " acessando a URI " + uri);
 //		}
-//		chain.doFilter(request, response);
+		chain.doFilter(request, response);
 	}
 	
 

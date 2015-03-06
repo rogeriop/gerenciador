@@ -35,8 +35,9 @@ public class NovaEmpresa extends HttpServlet {
 		String nome = request.getParameter("nome");
 		Empresa empresa = new Empresa(nome);
 		new EmpresaDAO().adiciona(empresa);
-		PrintWriter writer = response.getWriter();
-		writer.println("<html><head> Empresa " + nome  + " adicionada com sucesso!"  );
+		request.setAttribute("nome", nome);
+		request.getRequestDispatcher("/WEB-INF/paginas/NovaEmpresa.jsp").forward(request, response);
+		
 	}
 
 

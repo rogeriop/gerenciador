@@ -21,15 +21,10 @@ public class BuscaEmpresa extends HttpServlet {
 		
 		String argumento = req.getParameter("argumento");
 		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(argumento);
-		
-		PrintWriter writer = resp.getWriter();
-		writer.println("<head><body>");
 
-		writer.println("<ul>");
-		for (Empresa empresa : empresas ) {
-			writer.println("<li> " + empresa.getId() + " " + empresa.getNome());
-		}
+		req.setAttribute("empresas", empresas);
 		
-		writer.println("</ul></body></html>");
+		req.getRequestDispatcher("/WEB-INF/paginas/buscaEmpresa.jsp").forward(req, resp);
+		
 	}
 }

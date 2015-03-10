@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
 //			Cookie cookie = new Cookie("usuario.logado", email);
 //			response.addCookie(cookie);
 			HttpSession session = request.getSession();
-			session.setAttribute("usuario.logado", usu);
+			session.setAttribute("usuarioLogado", usu);
 			writer.println("<html><body>Usuário " + email + " logado</body></html>");
 		}
 		

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.alura.gerenciador.Usuario;
 
-@WebFilter(urlPatterns = "/*")
+@WebFilter(urlPatterns = "/FILTRO")
 public class FiltroDeAuditoria implements Filter {
 
 	@Override
@@ -37,15 +37,7 @@ public class FiltroDeAuditoria implements Filter {
 			System.out.println("Usuário " + usuarioLogado.getEmail()  + " acessando a URI " + uri);
 		}
 		
-//		Cookie cookie = new Cookies(req.getCookies()).getUsuarioLogado();
-//		HttpServletResponse resp = (HttpServletResponse) response;
-//		if (cookie == null) {
-//			System.out.println("Usuário deslogado acessando a URI " + uri);
-//		} else {
-//			cookie.setMaxAge(60 * 10);
-//			resp.addCookie(cookie);
-//			System.out.println("Usuário " + cookie.getValue()  + " acessando a URI " + uri);
-//		}
+
 		chain.doFilter(request, response);
 	}
 	

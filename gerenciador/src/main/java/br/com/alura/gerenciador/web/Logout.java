@@ -12,15 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/logout")
-public class Logout extends HttpServlet {
+public class Logout implements Tarefa {
 
-	protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+	public String executa (HttpServletRequest req, HttpServletResponse resp) {
 		
 		HttpSession session = req.getSession();
 		session.removeAttribute("usuarioLogado");
-		PrintWriter writer = resp.getWriter();
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logout.html");
-		dispatcher.forward(req, resp);
+		return "/WEB-INF/paginas/logout.html";
 	}
 
 }
